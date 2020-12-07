@@ -1,7 +1,9 @@
 package com.nqt;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class D5_12_2020 {
 
@@ -54,21 +56,23 @@ public class D5_12_2020 {
 
 	
 	// https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/
-	public List<List<Integer>> groupThePeople(int[] groupSizes) {
-		List<List<Integer>> list = new ArrayList<>();
-		List<Integer> subList[] = new ArrayList[groupSizes.length];
-		for (int i = 0; i < groupSizes.length; i++) {
-			subList[i] = new ArrayList<Integer>();
-		}
-		for (int i = 0; i < groupSizes.length; i++) {
-			int a = groupSizes[i];
-			subList[a].add(i);
-			if (subList[a].size() == a) {
-				list.add(subList[a]);
-				subList[a] = new ArrayList<Integer>();
+	public static List< List<Integer>> groupThePeople(int[] groupSizes) {
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+		Map<Integer,List<Integer>> map = new HashMap<Integer, List<Integer>>();
+		int n = groupSizes.length;
+		for (int i = 0; i < n; i++) {
+			List<Integer> list = new ArrayList<Integer>();
+			if(map.containsKey(groupSizes[i])) {
+				list = map.get(groupSizes[i]);
+			}
+			list.add(i);
+			map.put(groupSizes[i], list);
+			if(groupSizes[i] == map.get(groupSizes[i]).size()) {
+				result.add(map.get(groupSizes[i]));
+				map.remove(groupSizes[i]);
 			}
 		}
-		return list;
+		return result;
 	}
 
 }
