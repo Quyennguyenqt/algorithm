@@ -35,6 +35,7 @@ public class D5_12_2020 {
 	      return count;
 	}
 
+	
 	// https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent/
 	public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
 		String st1 = appendString(word1);
@@ -50,6 +51,7 @@ public class D5_12_2020 {
 		return sb.toString();
 	}
 
+	
 	// https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/
 	public static List<List<Integer>> groupThePeople(int[] groupSizes) {
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
