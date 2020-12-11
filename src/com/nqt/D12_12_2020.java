@@ -52,47 +52,68 @@ public class D12_12_2020 {
 		return nums;
 
 	}
-	
-	// https://leetcode.com/problems/richest-customer-wealth/
-		public static void maximumWealth(int[][] accounts) {
-			int temp = 0;
-			int max = 0;
-			for (int i = 0; i < accounts.length; i++) {
-				for (int j = 0; j < accounts[i].length; j++) {
-					temp += accounts[i][j];
-				}
-				if (temp > max) {
-					max = temp;
-					temp = 0;
-				}
-				System.out.println();
-			}
-			System.out.println(max);
-		}
-	
-	// https://leetcode.com/problems/valid-parentheses/
-		public static boolean isValid(String s) {
-			Stack<Character> stack = new Stack<Character>();
-			for (char c : s.toCharArray()) {
-				if (c == '(' || c == '{' || c == '[') {
-					stack.push(c);
-				} else {
-					
-					char ch = stack.pop();
-					
-					boolean b1 = c == ')'
-							&& ch != '(';
-					boolean b2 = c == '}'
-							&& ch != '{';
-					boolean b3 = c == ']'
-							&& ch != '[';
-					
-					if(b1 || b2 || b3) {
-						return false;
-					}
-				}
-			}
 
-			return stack.empty();
+	// https://leetcode.com/problems/richest-customer-wealth/
+	public static void maximumWealth(int[][] accounts) {
+		int temp = 0;
+		int max = 0;
+		for (int i = 0; i < accounts.length; i++) {
+			for (int j = 0; j < accounts[i].length; j++) {
+				temp += accounts[i][j];
+			}
+			if (temp > max) {
+				max = temp;
+				temp = 0;
+			}
+			System.out.println();
 		}
+		System.out.println(max);
+	}
+
+	// https://leetcode.com/problems/valid-parenthe	ses/
+	public static boolean isValid(String s) {
+		Stack<Character> stack = new Stack<Character>();
+		for (char c : s.toCharArray()) {
+			if (c == '(' || c == '{' || c == '[') {
+				stack.push(c);
+			} else {
+
+				char ch = stack.pop();
+
+				boolean b1 = c == ')' && ch != '(';
+				boolean b2 = c == '}' && ch != '{';
+				boolean b3 = c == ']' && ch != '[';
+
+				if (b1 || b2 || b3) {
+					return false;
+				}
+			}
+		}
+
+		return stack.empty();
+	}
+	
+	
+	//https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/
+	public static String removeDuplicatess(String s) {
+		int n = s.length();
+		StringBuilder sb = new StringBuilder();
+		Stack<Character> stack = new Stack<Character>();
+		for (int i = 0; i < n; i++) {
+			if (stack.empty()) {
+				stack.push(s.charAt(i));
+				sb.append(s.charAt(i));
+			} else {
+				char c = stack.peek();
+				if(c == s.charAt(i)) {
+					stack.pop();
+					sb.deleteCharAt(sb.length()-1);
+				} else {
+					stack.push(s.charAt(i));
+					sb.append(s.charAt(i));
+				}
+			}
+		}
+		return sb.toString();
+	}
 }
