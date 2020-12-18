@@ -70,7 +70,7 @@ public class D12_12_2020 {
 		System.out.println(max);
 	}
 
-	// https://leetcode.com/problems/valid-parenthe	ses/
+	// https://leetcode.com/problems/valid-parentheses/
 	public static boolean isValid(String s) {
 		Stack<Character> stack = new Stack<Character>();
 		for (char c : s.toCharArray()) {
