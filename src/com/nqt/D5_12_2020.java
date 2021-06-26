@@ -71,8 +71,4 @@ public class D5_12_2020 {
 		}
 		return result;
 	}
-
-	public static void main(String[] args) {
-		
-	}
 }
