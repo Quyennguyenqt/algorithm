@@ -12,9 +12,9 @@ public class D2_10_2021 {
             if(nums[mid] == target) {
                 return mid;
             } else if(nums[mid]  > target){
-                right-=1;
+                right = mid-1;
             } else {
-                left+=1;
+                left = mid + 1;
             }
         }
         return -1;
