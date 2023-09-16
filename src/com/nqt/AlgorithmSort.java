@@ -1,8 +1,5 @@
 package com.nqt;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class AlgorithmSort {
     public static void main(String[] args) {
 //        ListNode l1 = new ListNode(1);
